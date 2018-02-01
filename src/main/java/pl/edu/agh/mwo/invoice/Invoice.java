@@ -16,7 +16,7 @@ public class Invoice {
 		// TODO: implement
 	}
 
-	public BigDecimal getSubtotal() {
+	public BigDecimal getNetValue() {
 		return null;
 	}
 
@@ -24,7 +24,7 @@ public class Invoice {
 		return null;
 	}
 
-	public BigDecimal getTotal() {
+	public BigDecimal getGrossValue() {
 		return null;
 	}
 }
