@@ -31,12 +31,7 @@ public class Invoice {
 	}
 
 	public BigDecimal getTax() {
-		BigDecimal sum = BigDecimal.ZERO;
-		for (Product product : this.products ) {
-			sum = sum.add(product.getTaxPercent());
-		}//end for each
-		
-		return sum;
+		return getGrossPrice().subtract(getNetPrice());
 	}
 
 	public BigDecimal getGrossPrice() {
