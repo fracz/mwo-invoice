@@ -9,14 +9,29 @@ public abstract class Product {
 
 	private final BigDecimal taxPercent;
 
-	protected Product(String name, BigDecimal price, BigDecimal tax)  {
-		try{
-		this.name = name;
-		this.price = price;
-		this.taxPercent = tax;
-		} catch(IllegalArgumentException e){
-			e.getStackTrace();
+	protected Product(String name, BigDecimal price, BigDecimal tax) {
+
+		if (name == null || name.isEmpty()) {
+			throw new IllegalArgumentException();
+		} else {
+			this.name = name;
 		}
+
+		if (price == null) {
+			throw new IllegalArgumentException();
+		}
+
+		BigDecimal ZERO = new BigDecimal("0");
+		int comparison = ZERO.compareTo(price);
+
+		if (comparison == 1) {
+			throw new IllegalArgumentException();
+		} else {
+			this.price = price;
+		}
+
+		this.taxPercent = tax;
+
 	}
 
 	public String getName() {
