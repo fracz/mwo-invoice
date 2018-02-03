@@ -8,6 +8,7 @@ import pl.edu.agh.mwo.invoice.product.Product;
 public class Invoice {
 	private Collection<Product> products;
 
+	
 	public void addProduct(Product product) {
 		// TODO: implement
 	}
@@ -16,7 +17,7 @@ public class Invoice {
 		// TODO: implement
 	}
 
-	public BigDecimal getSubtotal() {
+	public BigDecimal getNetPrice() {
 		return null;
 	}
 
@@ -24,7 +25,7 @@ public class Invoice {
 		return null;
 	}
 
-	public BigDecimal getTotal() {
+	public BigDecimal getGrossPrice() {
 		return null;
 	}
 }
