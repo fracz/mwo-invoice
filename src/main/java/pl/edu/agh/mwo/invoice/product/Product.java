@@ -13,6 +13,11 @@ public abstract class Product {
 		this.name = name;
 		this.price = price;
 		this.taxPercent = tax;
+		
+		if (name ==""|| name==null || price == null|| price.signum()==-1){
+			throw new IllegalArgumentException(); 
+			//no product name or price, cant be null
+		}
 	}
 
 	public String getName() {
