@@ -12,7 +12,7 @@ public class Invoice {
 
 	public void addProduct(Product product) {
 		// TODO: implement
-		this.products.add(product);
+		this.addProduct(product, 1);
 	}
 
 	public void addProduct(Product product, Integer quantity) {
@@ -44,7 +44,9 @@ public class Invoice {
 		BigDecimal total = BigDecimal.ZERO;
 		for (Product item : amout.keySet()) {
 			BigDecimal subTotal = item.getPriceWithTax().multiply(new BigDecimal(amout.get(item)));
+			System.out.println(subTotal);
 			total = total.add(subTotal);
+			System.out.println(total);
 		}
 		return total;
 	}
