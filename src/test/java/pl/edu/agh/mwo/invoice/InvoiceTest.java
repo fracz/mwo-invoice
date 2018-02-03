@@ -22,7 +22,7 @@ public class InvoiceTest {
 	}
 
 	@Test
-	public void testEmptyInvoiceHasEmptySubtotal() {
+	public void testEmptyInvoiceHasEmptyNetValue() {
 		Assert.assertThat(BigDecimal.ZERO, Matchers.comparesEqualTo(invoice.getNetValue()));
 	}
 
@@ -37,14 +37,14 @@ public class InvoiceTest {
 	}
 
 	@Test
-	public void testInvoiceHasTheSameSubtotalAndTotalIfTaxIsZero() {
+	public void testInvoiceHasTheSameNetValueAndTotalIfTaxIsZero() {
 		Product taxFreeProduct = new TaxFreeProduct("Warzywa", new BigDecimal("199.99"));
 		invoice.addProduct(taxFreeProduct);
 		Assert.assertThat(invoice.getTotal(), Matchers.comparesEqualTo(invoice.getNetValue()));
 	}
 
 	@Test
-	public void testInvoiceHasProperSubtotalForManyProducts() {
+	public void testInvoiceHasProperNetValueForManyProducts() {
 		invoice.addProduct(new TaxFreeProduct("Owoce", new BigDecimal("200")));
 		invoice.addProduct(new DairyProduct("Maslanka", new BigDecimal("100")));
 		invoice.addProduct(new OtherProduct("Wino", new BigDecimal("10")));
@@ -74,7 +74,7 @@ public class InvoiceTest {
 	}
 
 	@Test
-	public void testInvoiceHasPropoerSubtotalWithQuantityMoreThanOne() {
+	public void testInvoiceHasPropoerNetValueWithQuantityMoreThanOne() {
 		// 2x kubek - price: 10
 		invoice.addProduct(new TaxFreeProduct("Kubek", new BigDecimal("5")), 2);
 		// 3x kozi serek - price: 30
