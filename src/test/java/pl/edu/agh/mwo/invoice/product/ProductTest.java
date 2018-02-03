@@ -9,11 +9,17 @@ import org.junit.Test;
 import pl.edu.agh.mwo.invoice.product.Product;
 
 public class ProductTest {
-	@Test
+	@Test //adnotacja do kodu, ze to bedzie test
 	public void testProductNameIsCorrect() {
 		Product product = new OtherProduct("buty", new BigDecimal("100.0"));
-		Assert.assertEquals("buty", product.getName());
+		Assert.assertEquals("buty", product.getName());//asert zapewnie ze zworcilismy to co wsadzilismy
 	}
+	
+	//mouseless dirven development
+	//ctrl  + 
+	//ctr f11 - run test
+	//pom.xml zawiera informacje na temat zaleznosci zwiazanych z projektem i dociaga co jest potrzebne (maven)
+	//repozyterium mavena zawiera gotowe rozwiązania, sa jarki, bez zrodel
 
 	@Test
 	public void testProductPriceAndTaxWithDefaultTax() {
