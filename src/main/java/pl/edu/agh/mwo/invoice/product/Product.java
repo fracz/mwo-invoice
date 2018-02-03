@@ -17,14 +17,15 @@ public abstract class Product {
 
 	public String getName() {
 		return null;
+		
 	}
 
 	public BigDecimal getPrice() {
-		return null;
+		return price;
 	}
 
 	public BigDecimal getTaxPercent() {
-		return null;
+		return taxPercent;
 	}
 
 	public BigDecimal getPriceWithTax() {
