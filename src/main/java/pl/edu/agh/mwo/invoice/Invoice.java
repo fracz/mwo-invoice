@@ -30,13 +30,13 @@ public class Invoice {
 	public BigDecimal getTax() {
 		BigDecimal taxSum = BigDecimal.ZERO;
 		for(Product product : products){
-			taxSum=taxSum.add(product.getPrice());
+			taxSum=taxSum.add(product.getTaxPercent().multiply(product.getPrice()));
 		}
 		return taxSum;
-		//return null;
+
 	}
 
 	public BigDecimal getTotal() {
-		return null;
+		return getNetValue().multiply(getTax()).add(getNetValue());
 	}
 }
