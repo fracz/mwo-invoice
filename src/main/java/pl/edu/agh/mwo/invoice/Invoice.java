@@ -37,6 +37,6 @@ public class Invoice {
 	}
 
 	public BigDecimal getTotal() {
-		return getNetValue().multiply(getTax()).add(getNetValue());
+		return getNetValue().add(getNetValue());
 	}
 }
