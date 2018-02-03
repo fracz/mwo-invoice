@@ -8,20 +8,20 @@ import pl.edu.agh.mwo.invoice.product.Product;
 
 public class Invoice {
 	private Collection<Product> products;
-	private HashMap<Product, Integer> amout = new HashMap();
+	private HashMap<Product, Integer> amout = new HashMap<Product, Integer>();
 
 	public void addProduct(Product product) {
-		// TODO: implement
 		this.addProduct(product, 1);
 	}
 
 	public void addProduct(Product product, Integer quantity) {
-		// TODO: implement
-		// this.products.add(product);
+		if (quantity <= 0) {
+			throw new IllegalArgumentException();
+		}
 		this.amout.put(product, quantity);
 	}
 
-	public BigDecimal getSubtotal() {
+	public BigDecimal getNetPrice() {
 		BigDecimal subtotal = BigDecimal.ZERO;
 		for (Product item : amout.keySet()) {
 			BigDecimal subPrice = item.getPrice().multiply(new BigDecimal(amout.get(item)));
@@ -41,13 +41,6 @@ public class Invoice {
 	}
 
 	public BigDecimal getTotal() {
-		BigDecimal total = BigDecimal.ZERO;
-		for (Product item : amout.keySet()) {
-			BigDecimal subTotal = item.getPriceWithTax().multiply(new BigDecimal(amout.get(item)));
-			System.out.println(subTotal);
-			total = total.add(subTotal);
-			System.out.println(total);
-		}
-		return total;
+		return this.getNetPrice().add(this.getTax());
 	}
 }
