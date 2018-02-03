@@ -32,10 +32,15 @@ public class Invoice {
 	}
 
 	public BigDecimal getTax() {
-		return null;
+		BigDecimal sum = BigDecimal.ZERO;
+		for (Product product : products) 
+		{
+			sum = sum.add(product.getTaxPercent().multiply(product.getPrice()));
+		}
+		return sum;
 	}
-
+// powyżej mielismy do czynienia z polimorfizmem
 	public BigDecimal getGrossValue() {
-		return null;
+		return getNetValue().add(getTax());
 	}
 }
