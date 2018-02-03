@@ -10,12 +10,12 @@ public abstract class Product {
 	private final BigDecimal taxPercent;
 
 	protected Product(String name, BigDecimal price, BigDecimal tax) {
+		if (price==null || name==null || name.equals("") || price.compareTo(BigDecimal.ZERO)==-1) { // name.isEmpty() zamiast equals("") najpierw sprawdzam czy jest nullem
+			throw new IllegalArgumentException(); 
+		}
 		this.name = name;
 		this.price = price;
 		this.taxPercent = tax;
-		if (price==null || name==null || name.equals("") || price.compareTo(BigDecimal.ZERO)==-1) {
-			throw new IllegalArgumentException();
-		}
 	}
 
 	public String getName() {
