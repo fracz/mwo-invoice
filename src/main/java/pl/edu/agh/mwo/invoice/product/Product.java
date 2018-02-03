@@ -11,23 +11,23 @@ public abstract class Product {
 
 	protected Product(String name, BigDecimal price, BigDecimal tax) {
 		this.name = name;
-		this.price = price;
+        this.price = price;
 		this.taxPercent = tax;
 	}
 
 	public String getName() {
-		return null;
+		return this.name;
 	}
 
 	public BigDecimal getPrice() {
-		return null;
+		return this.price;
 	}
 
 	public BigDecimal getTaxPercent() {
-		return null;
+		return this.taxPercent;
 	}
 
 	public BigDecimal getPriceWithTax() {
-		return null;
+		return taxPercent.add(price);
 	}
 }
