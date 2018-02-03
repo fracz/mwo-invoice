@@ -16,7 +16,7 @@ public abstract class Product {
 		this.price = price;
 		this.taxPercent = tax;
 		
-		//this.priceWithTax = priceWithTax; 
+		//this.priceWithTax = priceWithTax; 0
 	
 		
 	}
