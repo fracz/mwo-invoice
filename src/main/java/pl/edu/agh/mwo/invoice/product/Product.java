@@ -8,26 +8,33 @@ public abstract class Product {
 	private final BigDecimal price;
 
 	private final BigDecimal taxPercent;
+	
+	//private final BigDecimal priceWithTax;
 
-	protected Product(String name, BigDecimal price, BigDecimal tax) {
+	protected Product(String name, BigDecimal price, BigDecimal tax, BigDecimal priceWithTax) {
 		this.name = name;
 		this.price = price;
 		this.taxPercent = tax;
+		
+		//this.priceWithTax = priceWithTax;
+		
 	}
 
 	public String getName() {
-		return null;
+		return name;
 	}
 
 	public BigDecimal getPrice() {
-		return null;
+		return price;
 	}
 
 	public BigDecimal getTaxPercent() {
-		return null;
+		return taxPercent;
 	}
 
 	public BigDecimal getPriceWithTax() {
+		//BigDeciaml priceWithTax = 
 		return null;
+		//add price with tax ?
 	}
 }
