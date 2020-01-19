@@ -28,6 +28,6 @@ public abstract class Product {
 	}
 
 	public BigDecimal getPriceWithTax() {
-		return price.divide(taxPercent);
+		return this.price.add(price.multiply(taxPercent));
 	}
 }
